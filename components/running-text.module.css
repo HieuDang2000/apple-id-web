@@ -1,0 +1,20 @@
+/* components/running-text.module.css */
+.running-text-container {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.running-text span {
+  display: inline-block;
+  animation: running-text 10s linear infinite;
+}
+
+@keyframes running-text {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
