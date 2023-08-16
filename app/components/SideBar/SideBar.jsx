@@ -6,17 +6,19 @@ import {
   UserGroupIcon,
   UserIcon,
   CurrencyDollarIcon,
+  ArrowLeftOnRectangleIcon,
+  ArrowRightOnRectangleIcon
 } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import logo from "./logo.png";
 import SideBarContent from "./SideBarContent";
+import Link from "next/link";
 
 export default function SideBar({ show, setter }) {
-
   const className =
     "bg-gray-950 w-1/2 sm:w-1/4 lg:w-[250px] transition-[margin-left] ease-in-out duration-500 fixed top-0 bottom-0 left-0 z-40";
   const appendClass = show ? " ml-0" : " ml-[-500px] sm:ml-0";
-  
+
   // Overlay to prevent clicks in background, also serves as our close button
   const ModalOverlay = () => (
     <div
@@ -57,8 +59,19 @@ export default function SideBar({ show, setter }) {
               <div className="">100.000đ</div>
             </div>
           </div>
-
-          <hr className="border-slate-600" />
+          {/* login logout button  */}
+          <button className="w-full flex p-2 rounded-md border-red-500 border-2">
+            <ArrowLeftOnRectangleIcon className="h-6 w-6 mr-4" />
+            <p>Log out</p>
+          </button>
+          <SideBarContent
+            header=""
+            list={["Đăng Nhập"]}
+            icon={[<ArrowRightOnRectangleIcon />]}
+            navLinks={["/Login"]}
+          />
+          
+          <hr className="border-slate-600 mt-4" />
 
           <SideBarContent
             header="Các Trang Chính"

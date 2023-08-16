@@ -1,6 +1,8 @@
 const page = () => {
   return (
     <p>
+      dark mode
+      login
       Chào anh Lai H. Chào các anh em đã và đang trên đường trở thành real man.
       Mình là Hoàng (thực ra mình muốn xưng tôi hơn nhưng trông có vẻ xa lạ nên
       thôi) năm nay 23 tuổi. Mình biết đến trang blog trong một lần tình cờ, khi
