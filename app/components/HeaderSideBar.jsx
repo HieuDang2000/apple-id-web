@@ -22,7 +22,6 @@ const HeaderSideBar = ({ children }) => {
             <AdminHeader setter={setShowSidebar} />
             <div className=" p-2 ">
               <div className="h-10 w-full sm:w-3/4 lg:w-[calc(100%-250px)]"></div>
-
               {children}
             </div>
           </div>

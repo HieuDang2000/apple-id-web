@@ -13,9 +13,10 @@ import {
 import Image from "next/image";
 import logo from "./logo.png";
 import SideBarContent from "./SideBarContent";
-import {useState} from "react"
-export default function SideBar({ show, setter }) {
+import { useState } from "react";
+import { Menu } from "@headlessui/react";
 
+export default function SideBar({ show, setter }) {
   const [logout, setLogout] = useState(false);
 
   const className =
@@ -32,74 +33,75 @@ export default function SideBar({ show, setter }) {
     />
   );
 
-    return (
-      <>
-        <div
-          onClick={() => {
-            setter((oldVal) => !oldVal);
-          }}
-          className={`${className} ${appendClass}`}
-        >
-          <div className="p-2 ">
-            {/* logo  */}
-            <div className="pb-2 flex">
-              <Image src={logo.src} width={40} height={40} alt="Logo" />
-              <h1 className="flex items-center w-1/2 pl-2 text-xl font-semibold">
-                LOGO
-              </h1>
+  return (
+    <>
+      <div
+        onClick={() => {
+          setter((oldVal) => !oldVal);
+        }}
+        className={`${className} ${appendClass}`}
+      >
+        <div className="p-2 ">
+          {/* logo  */}
+          <div className="pb-2 flex">
+            <Image src={logo.src} width={40} height={40} alt="Logo" />
+            <h1 className="flex items-center w-1/2 pl-2 text-xl font-semibold">
+              LOGO
+            </h1>
+          </div>
+
+          <hr className="border-slate-600" />
+
+          {/* user info */}
+          <div className="p-2 flex flex-col md:flex-row">
+            <div className="mr-2 md:w-1/2">
+              <div className="text-sm text-gray-400">Tài khoản:</div>
+              <div className="">AikoCute</div>
             </div>
-
-            <hr className="border-slate-600" />
-
-            {/* user info */}
-            <div
-              onClick={() => {
-                setLogout((oldVal) => !oldVal);
-              }}
-              className="p-2 flex flex-col md:flex-row"
-            >
-              <div className="mr-2 md:w-1/2">
-                <div className="text-sm text-gray-400">Tài khoản:</div>
-                <div className="">AikoCute ↓</div>
-              </div>
-              <div className="md:w-1/2">
-                <div className="text-sm text-gray-400">Số dư:</div>
-                <div className="">100.000đ</div>
-              </div>
+            <div className="md:w-1/2">
+              <div className="text-sm text-gray-400">Số dư:</div>
+              <div className="">100.000đ</div>
             </div>
+          </div>
+          <SideBarContent
+            header=""
+            list={["Đăng Nhập"]}
+            icon={[<ArrowLeftOnRectangleIcon />]}
+            navLinks={["/Login"]}
+          />
 
-            <div className="hidden">
-              <SideBarContent
-                header=""
-                list={["Đăng Nhập"]}
-                icon={[<ArrowRightOnRectangleIcon />]}
-                navLinks={["/Login"]}
-              />
-            </div>
-
-            <hr className="border-slate-600 mt-4" />
-
+          <div className="hidden">
             <SideBarContent
-              header="Các Trang Chính"
-              list={["Trang Chủ", "Sản Phẩm", "Hướng Dẫn"]}
-              icon={[<HomeIcon />, <TagIcon />, <BookOpenIcon />]}
-              navLinks={["/", "/SanPham", "/HuongDan"]}
-            />
-            <SideBarContent
-              header="Hóa Đơn"
-              list={["Đơn Hàng", "Cộng Tác Viên"]}
-              icon={[<ListBulletIcon />, <UserGroupIcon />]}
-              navLinks={["/DonHang", "/CTV"]}
-            />
-            <SideBarContent
-              header="Người Dùng"
-              list={["Thông Tin", "Nạp tiền"]}
-              icon={[<UserIcon />, <CurrencyDollarIcon />]}
-              navLinks={["/ThongTin", "/NapTien"]}
+              header=""
+              list={["Đăng Nhập"]}
+              icon={[<ArrowRightOnRectangleIcon />]}
+              navLinks={["/Login"]}
             />
           </div>
+
+          <hr className="border-slate-600 mt-4" />
+
+          <SideBarContent
+            header="Các Trang Chính"
+            list={["Trang Chủ", "Sản Phẩm", "Hướng Dẫn"]}
+            icon={[<HomeIcon />, <TagIcon />, <BookOpenIcon />]}
+            navLinks={["/", "/SanPham", "/HuongDan"]}
+          />
+          <SideBarContent
+            header="Hóa Đơn"
+            list={["Đơn Hàng", "Cộng Tác Viên"]}
+            icon={[<ListBulletIcon />, <UserGroupIcon />]}
+            navLinks={["/DonHang", "/CTV"]}
+          />
+          <SideBarContent
+            header="Người Dùng"
+            list={["Thông Tin", "Nạp tiền"]}
+            icon={[<UserIcon />, <CurrencyDollarIcon />]}
+            navLinks={["/ThongTin", "/NapTien"]}
+          />
         </div>
-        {show ? <ModalOverlay /> : <></>}
-      </>
-    );
+      </div>
+      {show ? <ModalOverlay /> : <></>}
+    </>
+  );
 }
