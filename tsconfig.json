@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/RunningText/Runing-text.jsx", "app/layout.jsx", "app/page.jsx", "app/test/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/Runing-text.jsx", "app/layout.jsx", "app/page.jsx", "app/test/page.jsx"],
   "exclude": ["node_modules"]
 }

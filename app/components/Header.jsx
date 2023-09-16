@@ -1,16 +1,22 @@
+'use client'
 import {
   MagnifyingGlassIcon,
-  SunIcon,
   HeartIcon,
   ShoppingCartIcon,
   Bars3Icon,
 } from "@heroicons/react/24/solid";
+import DMButton from './DMButton'
+import { usePathname } from "next/navigation";
 
 const Header = ({ setter }) => {
+
+  const pathname = usePathname();
+
   return (
     <>
-      <div className="z-20 h-10 fixed w-full sm:w-3/4 lg:w-[calc(100%-250px)] flex justify-between items-center p-1 bg-slate-800">
+      <div className="z-20 h-10 fixed w-full sm:w-3/4 lg:w-[calc(100%-250px)] flex justify-between items-center p-1 bg-slate-50 dark:bg-slate-700 text-slate-800 dark:text-white">
         <div className="flex">
+          {/* hamburger button */}
           <button
             onClick={() => {
               setter((oldVal) => !oldVal);
@@ -19,10 +25,12 @@ const Header = ({ setter }) => {
           >
             <Bars3Icon className="h-6 w-6 ml-4 hover:bg-slate-500 " />
           </button>
+
           <MagnifyingGlassIcon className="h-6 w-6 ml-4" />
         </div>
         <div className="flex justify-between items-center">
-          <SunIcon className="h-6 w-6 mr-4" />
+          <DMButton />
+
           <HeartIcon className="h-6 w-6 mr-4" />
 
           {/* cart have 0 item */}

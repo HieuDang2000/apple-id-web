@@ -1,8 +1,8 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-import Footer from "./components/Footer/Footer";
-import HeaderSideBar from "./components/HeaderSideBar/HeaderSideBar";
-
+import Footer from "./components/Footer";
+import HeaderSideBar from "./components/HeaderSideBar";
+import Provider from "./components/Provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -12,12 +12,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <div className="flex min-h-[98vh]">
-          <HeaderSideBar children={children} />
-        </div>
-        <Footer />
+        <Provider>
+          <div className="flex min-h-[98vh]">
+            <HeaderSideBar children={children} />
+          </div>
+          <Footer />
+        </Provider>
       </body>
     </html>
   );
